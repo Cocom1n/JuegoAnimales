@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import animales from '../data/animales.json';
 
 function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,setRondaActual }) {
     const [animalObjetivo, setAnimalObjetivo] = useState('');
@@ -10,7 +11,7 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
    
 
     const obtenerAnimalAleatorio = () => {
-        const animales = ['gato', 'perro', 'vaca', 'leon', 'jirafa', 'cebra'];
+        //const animales = ['gato', 'perro', 'vaca', 'leon', 'jirafa', 'cebra'];
         const indiceAleatorio = Math.floor(Math.random() * animales.length);
         return animales[indiceAleatorio];
     };
@@ -21,9 +22,12 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
 
         while (opcionesAleatorias.length < 3) {
             const opcion = obtenerAnimalAleatorio();
-            if (!opcionesAleatorias.includes(opcion)) {
+            if (!opcionesAleatorias.some((animal) => animal.code === opcion.code)) {
                 opcionesAleatorias.push(opcion);
             }
+            //.some() verifica si al menos un objeto del array cumple con la condicion
+            //en este caso verificara si los codigos de ambos objetos son distintos
+            //en caso de que no haya duplicado va a agregar la opcion a el aray de opciones aleatorias
         }
 
         opcionesAleatorias = opcionesAleatorias.sort(() => Math.random() - 0.5);
@@ -33,7 +37,7 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
     };
 
     const verificarRespuesta = (animalSeleccionado) => {
-        if (animalSeleccionado === animalObjetivo) {
+        if (animalSeleccionado.name === animalObjetivo.name) {
             setEsCorrecto(true);
             setPuntaje(puntaje + 1);
         } else {
@@ -63,15 +67,16 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
         <div>
             <h1>{nombreJugador}, What animal is it?</h1>
             <p>Actual round: {rondaActual}</p>
-            <img src={`img/${animalObjetivo}.png`} alt={animalObjetivo} />
+            <img src={animalObjetivo.img} alt={animalObjetivo.name} />
+            <p> {animalObjetivo.description}</p>
             <div>
                 {opciones.map((animal) => (
                     <button
-                        key={animal}
+                        key={animal.code}
                         onClick={() => verificarRespuesta(animal)}
                         disabled={!puedeHacerClic || opcionesDeshabilitadas}
                     >
-                        {animal}
+                        {animal.name}
                     </button>
                 ))}
             </div>
