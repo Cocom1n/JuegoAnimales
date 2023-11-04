@@ -61,8 +61,8 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
 
     return (
         <div>
-            <h1>{nombreJugador}, ¿Cuál es este animal?</h1>
-            <p>Ronda actual: {rondaActual}</p>
+            <h1>{nombreJugador}, What animal is it?</h1>
+            <p>Actual round: {rondaActual}</p>
             <img src={`img/${animalObjetivo}.png`} alt={animalObjetivo} />
             <div>
                 {opciones.map((animal) => (
@@ -75,9 +75,9 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
                     </button>
                 ))}
             </div>
-            {esCorrecto === true && <p>¡Correcto!</p>}
-            {esCorrecto === false && <p>¡Incorrecto!</p>}
-            <button onClick={siguienteRonda}>Siguiente</button>
+            {esCorrecto === true && <p>Correct!</p>}
+            {esCorrecto === false && <p>Incorrect!</p>}
+            <button onClick={siguienteRonda}>Next</button>
         </div>
     );
 }
