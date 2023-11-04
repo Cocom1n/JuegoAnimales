@@ -51,7 +51,14 @@ function Inicio() {
     } else if (mostrarFelicitaciones) {
         return (
             <div>
-                <Felicitaciones nombreJugador={nombreJugador} puntaje={puntaje} />
+                <Felicitaciones 
+                    nombreJugador={nombreJugador} 
+                    puntaje={puntaje} 
+                    //se envian los estados para reiniciar el juego
+                    setMostrarFelicitaciones={setMostrarFelicitaciones}
+                    setMostrarJuego={setMostrarJuego}
+                    setRondaActual={setRondaActual}
+                />
             </div>
         );
     }
