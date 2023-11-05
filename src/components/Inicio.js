@@ -31,7 +31,7 @@ function Inicio() {
                     placeholder="kid's name"
                     onChange={(e) => setNombreJugador(e.target.value)}
                 />
-                <button onClick={() => manejarClickJugar(nombreJugador)}>Jugar</button>
+                <button onClick={() => manejarClickJugar(nombreJugador)}>PLAY!</button>
             </div>
         );
     } else if (mostrarJuego) {

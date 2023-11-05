@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import data from '../data/animales.json'
 
 function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,setRondaActual }) {
     const [animalObjetivo, setAnimalObjetivo] = useState('');
@@ -10,7 +11,8 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
    
 
     const obtenerAnimalAleatorio = () => {
-        const animales = ['gato', 'perro', 'vaca', 'leon', 'jirafa', 'cebra'];
+        //const animales = ['cat', 'dog', 'cow', 'lion', 'giraffe', 'zebra'];
+        const animales = data;
         const indiceAleatorio = Math.floor(Math.random() * animales.length);
         return animales[indiceAleatorio];
     };
@@ -63,18 +65,19 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
         <div>
             <h1>{nombreJugador}, What animal is it?</h1>
             <p>Actual round: {rondaActual}</p>
-            <img src={`img/${animalObjetivo}.png`} alt={animalObjetivo} />
+            <img src={`${animalObjetivo.img}`} alt={animalObjetivo.name} />
             <div>
                 {opciones.map((animal) => (
                     <button
-                        key={animal}
+                        key={animal.name}
                         onClick={() => verificarRespuesta(animal)}
                         disabled={!puedeHacerClic || opcionesDeshabilitadas}
                     >
-                        {animal}
+                        {animal.name}
                     </button>
                 ))}
             </div>
+            <p>Clue: {animalObjetivo.description}</p>
             {esCorrecto === true && <p>Correct!</p>}
             {esCorrecto === false && <p>Incorrect!</p>}
             <button onClick={siguienteRonda}>Next</button>

@@ -1,41 +1,41 @@
 [
     {
-        "img":"../img/cebra.png",
+        "img":"img/zebra.png",
         "code":"01",
         "name":"zebra",
         "description":"Black and white striping pattern"
     },
 
     {
-        "img":"../img/gato.png",
+        "img":"img/cat.png",
         "code":"02",
         "name":"cat",
         "description":"Tiny body covered with smooth fur"
     },
 
     {
-        "img":"../img/jirafa.png",
+        "img":"img/giraffe.png",
         "code":"03",
         "name":"giraffe",
         "description":"The world's tallest mammals with a very long neck"
     },
 
     {
-        "img":"../img/leon.png",
+        "img":"img/lion.png",
         "code":"04",
         "name":"lion",
         "description":"sharp claws with a yellow-gold coat"
     },
 
     {
-        "img":"../img/perro.png",
+        "img":"img/dog.png",
         "code":"05",
         "name":"dog",
         "description":"energetic and the most loyal creature"
     },
 
     {
-        "img":"../img/vaca.png",
+        "img":"img/cow.png",
         "code":"06",
         "name":"cow",
         "description":"large mammals used as a livestock of milk"
