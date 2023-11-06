@@ -8,8 +8,6 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
     const [rondasTotales, setRondasTotales] = useState(Math.floor(Math.random() * 6) + 5);
     const [puedeHacerClic, setPuedeHacerClic] = useState(true);
 
-   
-
     const obtenerAnimalAleatorio = () => {
         //const animales = ['gato', 'perro', 'vaca', 'leon', 'jirafa', 'cebra'];
         const indiceAleatorio = Math.floor(Math.random() * animales.length);
