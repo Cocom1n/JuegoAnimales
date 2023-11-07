@@ -74,7 +74,7 @@
     {
         "img":"../img/mouse.jpg",
         "code":"10",
-        "name":"muse",
+        "name":"mouse",
         "description":"Is a small, rodent mammal characterized by its long tail and sharp teeth.",
         "sound":"../sonido/rata.mp3"
     }

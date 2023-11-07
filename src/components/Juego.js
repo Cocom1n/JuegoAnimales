@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import data from '../data/animales.json'
 import "./Juego.css";
 
-function Juego({ nombreJugador, nombreJugador2, puntaje, puntaje2, setPuntaje, setPuntaje2, alTerminar, rondaActual,setRondaActual, segundoTurno}) {
+function Juego({ nombreJugador, nombreJugador2, puntaje, puntaje2, setPuntaje, setPuntaje2, alTerminar, rondaActual,setRondaActual, segundoTurno, setSegundoTurno}) {
     const [animalObjetivo, setAnimalObjetivo] = useState({
         "img":"",
         "code":"",
@@ -72,16 +72,26 @@ function Juego({ nombreJugador, nombreJugador2, puntaje, puntaje2, setPuntaje, s
 
     const siguienteRonda = () => {
         
-        if (rondaActual < rondasTotales) {
-            setRondaActual(rondaActual + 1);
+        
+        if (rondaActual < rondasTotales || segundoTurno) {
+            //setRondaActual(rondaActual + 1);
             setEsCorrecto(null);
             setPuedeHacerClic(true);
             obtenerOpcionesAleatorias();
-        } else if(segundoTurno == true){
-            alTerminar(puntaje);
+            console.log(segundoTurno);
+            if (!segundoTurno)
+            {
+                setSegundoTurno(true);
+                console.log(segundoTurno);
+            }
+            else
+            {
+                setSegundoTurno(false);
+                setRondaActual(rondaActual + 1); 
+            }
         }
-        else if(segundoTurno == false){
-            alTerminar(puntaje2);
+        else {
+            alTerminar(puntaje, puntaje2);
         }
     };
 
@@ -93,7 +103,7 @@ function Juego({ nombreJugador, nombreJugador2, puntaje, puntaje2, setPuntaje, s
 
     return (
         <div className='juego'>
-            <h1 className='animal'>{nombreJugador}, What animal is it?</h1>
+            <h1 className='animal'>{!segundoTurno && nombreJugador} {segundoTurno && nombreJugador2}, What animal is it?</h1>
             <p className='ronda'>Actual round: {rondaActual}</p>
             {/* <img src={`img/${animalObjetivo}.png`} alt={animalObjetivo} /> */}
             <img src={animalObjetivo.img} alt={animalObjetivo.name} />
@@ -113,7 +123,11 @@ function Juego({ nombreJugador, nombreJugador2, puntaje, puntaje2, setPuntaje, s
             <p>Clue: {animalObjetivo.description}</p>
             {esCorrecto === true && <p>Correct!</p>}
             {esCorrecto === false && <p>Incorrect!</p>}
-            <button className='boton3' onClick={siguienteRonda}>Next</button>
+            <button className='boton3' 
+                onClick={siguienteRonda}
+                >
+                    Next
+                </button>
         </div>
     );
 }

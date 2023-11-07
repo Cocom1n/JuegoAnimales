@@ -23,14 +23,9 @@ const [nombreJugador, setNombreJugador] = useState('');
         setMostrarFelicitaciones(false);
     };
 
-    const alTerminar = (puntaje) => {
-        if (segundoTurno == true) {
-            setPuntaje(puntaje);
-        }
-        else if (segundoTurno == false)
-        {
-            setPuntaje2(puntaje);
-        }
+    const alTerminar = (puntaje, puntaje2) => {
+        setPuntaje(puntaje);
+        setPuntaje2(puntaje2);
         setMostrarJuego(false);
         setMostrarFelicitaciones(true);
     };
@@ -67,6 +62,7 @@ const [nombreJugador, setNombreJugador] = useState('');
                     rondaActual={rondaActual}
                     setRondaActual={setRondaActual}
                     segundoTurno={segundoTurno}
+                    setSegundoTurno={setSegundoTurno}
                 />
             </div>
         );
