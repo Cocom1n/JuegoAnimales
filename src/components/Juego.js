@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import animales from '../data/animales.json'
+import "./Juego.css";
 
 function Juego({ nombreJugador, nombreJugador2, puntaje, puntaje2, setPuntaje, setPuntaje2, alTerminar, rondaActual,setRondaActual, segundoTurno}) {
     const [animalObjetivo, setAnimalObjetivo] = useState({
@@ -90,17 +91,16 @@ function Juego({ nombreJugador, nombreJugador2, puntaje, puntaje2, setPuntaje, s
     }, []);
 
     return (
-        <div>
-
-            <h1>{nombreJugador}, What animal is it?</h1>
-            <p>Actual round: {rondaActual}</p>
+        <div className='juego'>
+            <h1 className='animal'>{nombreJugador}, What animal is it?</h1>
+            <p className='ronda'>Actual round: {rondaActual}</p>
             {/* <img src={`img/${animalObjetivo}.png`} alt={animalObjetivo} /> */}
             <img src={animalObjetivo.img} alt={animalObjetivo.name} />
             <p> {animalObjetivo.description}</p>
 
             <div>
                 {opciones.map((animal) => (
-                    <button
+                    <button className='boton2'
                         key={animal.code}
                         onClick={() => verificarRespuesta(animal)}
                         disabled={!puedeHacerClic || opcionesDeshabilitadas}
@@ -112,7 +112,7 @@ function Juego({ nombreJugador, nombreJugador2, puntaje, puntaje2, setPuntaje, s
             <p>Clue = {animalObjetivo.description}</p>
             {esCorrecto === true && <p>Correct!</p>}
             {esCorrecto === false && <p>Incorrect!</p>}
-            <button onClick={siguienteRonda}>Next</button>
+            <button className='boton3' onClick={siguienteRonda}>Next</button>
         </div>
     );
 }

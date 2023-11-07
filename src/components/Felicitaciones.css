@@ -1,0 +1,16 @@
+body{
+    background-color: azure;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.congratulations{ font-size: 2.5em;
+color: rgb(219, 96, 96);}
+
+.score{
+    font-size: 2.0em;
+    font-weight: bold;
+    color: rgb(114, 150, 167);
+}
+
+
+
