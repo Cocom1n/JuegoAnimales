@@ -37,30 +37,20 @@ const [nombreJugador, setNombreJugador] = useState('');
 
     if (!mostrarJuego && !mostrarFelicitaciones) {
         return (
-<<<<<<< HEAD
-            <div>
-                <h1>Ingresa nombre de los Jugadores</h1>
-                <input
-=======
             <div className='container'>
-                <h1 className='h1'>Put your name here</h1>
+                <h1 className='h1'>Enter the name of the Players</h1>
                 <input className='texto'
->>>>>>> andreapioli
                     type="text"
-                    placeholder="Nombre del niño 1"
+                    placeholder="child's name 1"
                     onChange={(e) => setNombreJugador(e.target.value)}
                 />
-<<<<<<< HEAD
                 <input
                     type="text"
-                    placeholder="Nombre del niño 2"
+                    placeholder="Nchild's name 2"
                     onChange={(e) => setNombreJugador2(e.target.value)}
                 />
-                <button onClick={() => manejarClickJugar(nombreJugador, nombreJugador2)}>Jugar</button>
+                <button className='boton' onClick={() => manejarClickJugar(nombreJugador, nombreJugador2)}>Jugar</button>
 
-=======
-                <button className='boton' onClick={() => manejarClickJugar(nombreJugador)}>Jugar</button>
->>>>>>> andreapioli
             </div>
         );
     } else if (mostrarJuego) {
