@@ -1,10 +1,11 @@
 import React from 'react';
+import "./Felicitaciones.css";
 
 function Felicitaciones({ nombreJugador, puntaje }) {
     return (
-        <div>
-            <h1>¡Congratulations, {nombreJugador}!</h1>
-            <p>your total score is: {puntaje}</p>
+        <div className='happy'>
+            <h1 className='congratulations'>¡Congratulations, {nombreJugador}!</h1>
+            <p className='score'>your total score is: {puntaje}</p>
         </div>
     );
 }

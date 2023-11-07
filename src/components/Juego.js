@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import "./Juego.css";
 
 function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,setRondaActual }) {
     const [animalObjetivo, setAnimalObjetivo] = useState('');
@@ -58,13 +59,13 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
     }, []);
 
     return (
-        <div>
-            <h1>{nombreJugador}, What animal is it?</h1>
-            <p>Actual round: {rondaActual}</p>
+        <div className='juego'>
+            <h1 className='animal'>{nombreJugador}, What animal is it?</h1>
+            <p className='ronda'>Actual round: {rondaActual}</p>
             <img src={`img/${animalObjetivo}.png`} alt={animalObjetivo} />
             <div>
                 {opciones.map((animal) => (
-                    <button
+                    <button className='boton2'
                         key={animal}
                         onClick={() => verificarRespuesta(animal)}
                         disabled={!puedeHacerClic || opcionesDeshabilitadas}
@@ -75,7 +76,7 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
             </div>
             {esCorrecto === true && <p>Correct!</p>}
             {esCorrecto === false && <p>Incorrect!</p>}
-            <button onClick={siguienteRonda}>Next</button>
+            <button className='boton3' onClick={siguienteRonda}>Next</button>
         </div>
     );
 }
