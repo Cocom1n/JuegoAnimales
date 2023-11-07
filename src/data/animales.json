@@ -3,42 +3,48 @@
         "img":"../img/cebra.png",
         "code":"01",
         "name":"zebra",
-        "description":"Black and white striping pattern"
+        "description":"Black and white striping pattern",
+        "sound":"../sonido/cebra.mp3"
     },
 
     {
         "img":"../img/gato.png",
         "code":"02",
         "name":"cat",
-        "description":"Tiny body covered with smooth fur"
+        "description":"Tiny body covered with smooth fur",
+        "sound":"../sonido/gato.mp3"
     },
 
     {
         "img":"../img/jirafa.png",
         "code":"03",
         "name":"giraffe",
-        "description":"The world's tallest mammals with a very long neck"
+        "description":"The world's tallest mammals with a very long neck",
+        "sound":"../sonido/jirafa.mp3"
     },
 
     {
         "img":"../img/leon.png",
         "code":"04",
         "name":"lion",
-        "description":"sharp claws with a yellow-gold coat"
+        "description":"sharp claws with a yellow-gold coat",
+        "sound":"../sonido/leon.mp3"
     },
 
     {
         "img":"../img/perro.png",
         "code":"05",
         "name":"dog",
-        "description":"energetic and the most loyal creature"
+        "description":"energetic and the most loyal creature",
+        "sound":"../sonido/perro.mp3"
     },
 
     {
         "img":"../img/vaca.png",
         "code":"06",
         "name":"cow",
-        "description":"large mammals used as a livestock of milk"
+        "description":"large mammals used as a livestock of milk",
+        "sound":"../sonido/vaca.mp3"
     }
     
 ]
