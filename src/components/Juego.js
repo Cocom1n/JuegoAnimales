@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,setRondaActual}) {
+function Juego({ nombreJugador, nombreJugador2, puntaje, puntaje2, setPuntaje, setPuntaje2, alTerminar, rondaActual,setRondaActual, segundoTurno}) {
     const [animalObjetivo, setAnimalObjetivo] = useState('');
     const [opciones, setOpciones] = useState([]);
     const [esCorrecto, setEsCorrecto] = useState(null);
     const [rondasTotales, setRondasTotales] = useState(Math.floor(Math.random() * 6) + 5);
     const [puedeHacerClic, setPuedeHacerClic] = useState(true);
-   
 
     const obtenerAnimalAleatorio = () => {
         const animales = ['gato', 'perro', 'vaca', 'leon', 'jirafa', 'cebra'];
@@ -32,23 +31,39 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
     };
 
     const verificarRespuesta = (animalSeleccionado) => {
-        if (animalSeleccionado === animalObjetivo) {
-            setEsCorrecto(true);
-            setPuntaje(puntaje + 1);
-        } else {
-            setEsCorrecto(false);
-        }
-        setPuedeHacerClic(false);
-    };
+                if(segundoTurno == true)
+                {
+                    if (animalSeleccionado === animalObjetivo) {
+                        setEsCorrecto(true);
+                        setPuntaje2(puntaje2 + 1);
+                    } else {
+                        setEsCorrecto(false);
+                    }
+                    setPuedeHacerClic(false);
+                }
+                else{
+                    if (animalSeleccionado === animalObjetivo) {
+                        setEsCorrecto(true);
+                        setPuntaje(puntaje + 1);
+                    } else {
+                        setEsCorrecto(false);
+                    }
+                    setPuedeHacerClic(false);
+                }
+        };
 
     const siguienteRonda = () => {
+        
         if (rondaActual < rondasTotales) {
             setRondaActual(rondaActual + 1);
             setEsCorrecto(null);
             setPuedeHacerClic(true);
             obtenerOpcionesAleatorias();
-        } else {
+        } else if(segundoTurno == true){
             alTerminar(puntaje);
+        }
+        else if(segundoTurno == false){
+            alTerminar(puntaje2);
         }
     };
 
@@ -60,7 +75,7 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
 
     return (
         <div>
-            <h1>{nombreJugador}, ¿Cuál es este animal?</h1>
+            <h1>¿Cuál es este animal?</h1>
             <p>Ronda actual: {rondaActual}</p>
             <img src={`img/${animalObjetivo}.png`} alt={animalObjetivo} />
             <div>
