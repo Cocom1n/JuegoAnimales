@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import animales from '../data/animales.json'
 
-function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,setRondaActual }) {
+function Juego({ nombreJugador, nombreJugador2, puntaje, puntaje2, setPuntaje, setPuntaje2, alTerminar, rondaActual,setRondaActual, segundoTurno}) {
     const [animalObjetivo, setAnimalObjetivo] = useState({
         "img":"",
         "code":"",
@@ -9,9 +9,6 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
         "description":"",
         "sound":""
     });
-
-// function Juego({ nombreJugador, nombreJugador2, puntaje, puntaje2, setPuntaje, setPuntaje2, alTerminar, rondaActual,setRondaActual, segundoTurno}) {
-    // const [animalObjetivo, setAnimalObjetivo] = useState('');
 
     const [opciones, setOpciones] = useState([]);
     const [esCorrecto, setEsCorrecto] = useState(null);
