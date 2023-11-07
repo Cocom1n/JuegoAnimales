@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Juego from './Juego';
 import Felicitaciones from './Felicitaciones';
+import "./Inicio.css";
 
 function Inicio() {
 const [nombreJugador, setNombreJugador] = useState(''); 
@@ -36,19 +37,19 @@ const [nombreJugador, setNombreJugador] = useState('');
 
     if (!mostrarJuego && !mostrarFelicitaciones) {
         return (
-            <div>
-                <h1>Ingresa nombre de los Jugadores</h1>
-                <input
+            <div className='container'>
+                <h1 className='h1'>Enter the name of the Players</h1>
+                <input className='texto'
                     type="text"
-                    placeholder="Nombre del niño 1"
+                    placeholder="child's name 1"
                     onChange={(e) => setNombreJugador(e.target.value)}
                 />
                 <input
                     type="text"
-                    placeholder="Nombre del niño 2"
+                    placeholder="Nchild's name 2"
                     onChange={(e) => setNombreJugador2(e.target.value)}
                 />
-                <button onClick={() => manejarClickJugar(nombreJugador, nombreJugador2)}>Jugar</button>
+                <button className='boton' onClick={() => manejarClickJugar(nombreJugador, nombreJugador2)}>Jugar</button>
 
             </div>
         );

@@ -1,0 +1,18 @@
+body{
+    background-color: azure;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.h1{ font-size: 2.5em;
+color: rgb(219, 96, 96);}
+
+.boton{
+    font-size: 1.0em;
+    font-weight: bold;
+    padding: 3px 9px;
+    border-radius: 4px;
+    border: 2px solid rgba(0,0,0,0.5);
+    color: white;
+    background-color: rgb(226, 125, 75);
+}
+
