@@ -6,7 +6,8 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
         "img":"",
         "code":"",
         "name":"",
-        "description":""
+        "description":"",
+        "sound":""
     });
     const [opciones, setOpciones] = useState([]);
     const [esCorrecto, setEsCorrecto] = useState(null);
@@ -40,6 +41,8 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
         if (animalSeleccionado === animalObjetivo) {
             setEsCorrecto(true);
             setPuntaje(puntaje + 1);
+            let animalSound = new Audio(animalObjetivo.sound);
+            animalSound.play();
         } else {
             setEsCorrecto(false);
         }
