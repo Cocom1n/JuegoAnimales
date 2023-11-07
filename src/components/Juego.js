@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import animalsData from '../data/animales.json'
 
 function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,setRondaActual }) {
-    const [animalObjetivo, setAnimalObjetivo] = useState('');
+    const [animalObjetivo, setAnimalObjetivo] = useState({
+        "img":"",
+        "code":"",
+        "name":"",
+        "description":""
+    });
     const [opciones, setOpciones] = useState([]);
     const [esCorrecto, setEsCorrecto] = useState(null);
     const [rondasTotales, setRondasTotales] = useState(Math.floor(Math.random() * 6) + 5);
     const [puedeHacerClic, setPuedeHacerClic] = useState(true);
 
     const obtenerAnimalAleatorio = () => {
-        const animales = ['gato', 'perro', 'vaca', 'leon', 'jirafa', 'cebra'];
+        const animales = animalsData;
         const indiceAleatorio = Math.floor(Math.random() * animales.length);
         return animales[indiceAleatorio];
     };
@@ -61,18 +67,19 @@ function Juego({ nombreJugador, puntaje, setPuntaje, alTerminar, rondaActual,set
         <div>
             <h1>{nombreJugador}, What animal is it?</h1>
             <p>Actual round: {rondaActual}</p>
-            <img src={`img/${animalObjetivo}.png`} alt={animalObjetivo} />
+            <img src={animalObjetivo.img} alt={animalObjetivo.name} />
             <div>
-                {opciones.map((animal) => (
+                {opciones.map((animalObj) => (
                     <button
-                        key={animal}
-                        onClick={() => verificarRespuesta(animal)}
+                        key={animalObj.name}
+                        onClick={() => verificarRespuesta(animalObj)}
                         disabled={!puedeHacerClic || opcionesDeshabilitadas}
                     >
-                        {animal}
+                        {animalObj.name}
                     </button>
                 ))}
             </div>
+            <p>Clue = {animalObjetivo.description}</p>
             {esCorrecto === true && <p>Correct!</p>}
             {esCorrecto === false && <p>Incorrect!</p>}
             <button onClick={siguienteRonda}>Next</button>
