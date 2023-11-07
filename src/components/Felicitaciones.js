@@ -1,8 +1,9 @@
 import React from 'react';
 import Inicio from './Inicio';
 
-function Felicitaciones({ nombreJugador, puntaje, setMostrarFelicitaciones, setMostrarJuego, setRondaActual }) {
-
+function Felicitaciones({ nombreJugador, puntaje, setMostrarFelicitaciones, setMostrarJuego, setRondaActual}) {
+    let listaNombres = [];
+    listaNombres.push(nombreJugador);
     const volverAInicio = ()=>{
         //se cambian los estados a false para volver a jugar el juego con un nuevo nombre y se reinicia el N° de rondas
         setMostrarFelicitaciones(false);
@@ -17,8 +18,16 @@ function Felicitaciones({ nombreJugador, puntaje, setMostrarFelicitaciones, setM
     }
     return (
         <div>
-            <h1>¡Felicitaciones, {nombreJugador}!</h1>
+            <h1>¡Felicitaciones</h1>
             <p>Tu puntaje total es: {puntaje}</p>
+            <ul>
+                lista de jugadores
+                {
+                    listaNombres.map((nombres) => (
+                        <li key={nombres}> {nombres} </li>
+                    ))
+                }
+            </ul>
             <button onClick={volverAInicio}>
                 volver a inicio
             </button>

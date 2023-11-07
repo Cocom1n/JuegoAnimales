@@ -32,6 +32,7 @@ function Inicio() {
                     onChange={(e) => setNombreJugador(e.target.value)}
                 />
                 <button onClick={() => manejarClickJugar(nombreJugador)}>Jugar</button>
+
             </div>
         );
     } else if (mostrarJuego) {
@@ -44,7 +45,6 @@ function Inicio() {
                     alTerminar={alTerminar}
                     rondaActual={rondaActual}
                     setRondaActual={setRondaActual}
-
                 />
             </div>
         );
@@ -52,7 +52,7 @@ function Inicio() {
         return (
             <div>
                 <Felicitaciones 
-                    nombreJugador={nombreJugador} 
+                    nombreJugador={nombreJugador}
                     puntaje={puntaje} 
                     //se envian los estados para reiniciar el juego
                     setMostrarFelicitaciones={setMostrarFelicitaciones}
